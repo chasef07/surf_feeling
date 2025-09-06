@@ -53,148 +53,322 @@ export default function LessonsPage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Choose Your Surfing Journey
+              Surf Lesson Types in Da Nang
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              From complete beginner to advanced surfer, we have the perfect lesson for your skill level
+              Choose from group lessons, private instruction, kids lessons, or comprehensive fundamentals courses designed to create independent surfers
             </p>
           </div>
 
-          <Tabs defaultValue="beginner" className="w-full max-w-6xl mx-auto">
-            <TabsList className="grid w-full grid-cols-3 mb-8">
-              <TabsTrigger value="beginner" className="text-center">
-                <div className="flex flex-col items-center">
-                  <Users className="h-5 w-5 mb-1" />
-                  Beginner
+          <Tabs defaultValue="group" className="w-full max-w-6xl mx-auto">
+            <TabsList className="grid w-full grid-cols-2 lg:grid-cols-4 mb-8 h-auto bg-transparent p-1">
+              <TabsTrigger value="group" className="text-center py-4 px-6 data-[state=active]:bg-blue-600 data-[state=active]:text-white">
+                <div className="flex flex-col items-center gap-2">
+                  <Users className="h-5 w-5" />
+                  <span className="text-sm font-medium">Group</span>
                 </div>
               </TabsTrigger>
-              <TabsTrigger value="intermediate" className="text-center">
-                <div className="flex flex-col items-center">
-                  <Waves className="h-5 w-5 mb-1" />
-                  Intermediate
+              <TabsTrigger value="private" className="text-center py-4 px-6 data-[state=active]:bg-blue-600 data-[state=active]:text-white">
+                <div className="flex flex-col items-center gap-2">
+                  <Award className="h-5 w-5" />
+                  <span className="text-sm font-medium">Private</span>
                 </div>
               </TabsTrigger>
-              <TabsTrigger value="advanced" className="text-center">
-                <div className="flex flex-col items-center">
-                  <Award className="h-5 w-5 mb-1" />
-                  Advanced
+              <TabsTrigger value="kids" className="text-center py-4 px-6 data-[state=active]:bg-blue-600 data-[state=active]:text-white">
+                <div className="flex flex-col items-center gap-2">
+                  <Waves className="h-5 w-5" />
+                  <span className="text-sm font-medium">Kids</span>
+                </div>
+              </TabsTrigger>
+              <TabsTrigger value="course" className="text-center py-4 px-6 data-[state=active]:bg-blue-600 data-[state=active]:text-white">
+                <div className="flex flex-col items-center gap-2">
+                  <CheckCircle className="h-5 w-5" />
+                  <span className="text-sm font-medium">Courses</span>
                 </div>
               </TabsTrigger>
             </TabsList>
 
-            {Object.entries(SURF_LEVELS).map(([level, info]) => (
-              <TabsContent key={level} value={level} className="space-y-8">
-                <Card className="bg-gradient-to-r from-blue-50 to-cyan-50">
-                  <CardHeader className="text-center">
-                    <CardTitle className="text-2xl text-blue-900">{info.label} Lessons</CardTitle>
-                    <CardDescription className="text-lg text-gray-600">{info.description}</CardDescription>
-                  </CardHeader>
-                </Card>
+            {/* Group Lessons */}
+            <TabsContent value="group" className="space-y-8">
+              <Card className="bg-gradient-to-r from-blue-50 to-cyan-50">
+                <CardHeader className="text-center">
+                  <CardTitle className="text-2xl text-blue-900">Group Surf Lessons in Da Nang</CardTitle>
+                  <CardDescription className="text-lg text-gray-600">
+                    Small group classes with 2-3 students per instructor for personalized attention and accelerated learning
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+              <div className="grid grid-cols-1 gap-6">
+                {LESSON_PACKAGES.filter(pkg => pkg.type === "group").map((lesson) => (
+                  <Card key={lesson.id} className="relative overflow-hidden">
+                    <CardHeader>
+                      <div className="flex justify-between items-start">
+                        <div>
+                          <CardTitle className="text-xl">{lesson.title}</CardTitle>
+                          <CardDescription className="mt-2">{lesson.description}</CardDescription>
+                        </div>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-4">
+                        <div className="flex items-center gap-4 text-sm text-gray-600">
+                          <div className="flex items-center gap-1">
+                            <Clock className="h-4 w-4" />
+                            {lesson.duration * 60} minutes
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <Users className="h-4 w-4" />
+                            Max {lesson.maxParticipants} students per instructor
+                          </div>
+                        </div>
+                        <div>
+                          <h4 className="font-semibold mb-2">What&apos;s Included:</h4>
+                          <ul className="space-y-1">
+                            {lesson.includes.map((item, index) => (
+                              <li key={index} className="flex items-center gap-2 text-sm">
+                                <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0" />
+                                {item}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </CardContent>
+                    <CardFooter>
+                      <Button asChild className="w-full">
+                        <a href={`https://wa.me/${BUSINESS_INFO.whatsapp.replace('+', '')}?text=Hi! I'd like to book a group surf lesson in Da Nang.`} target="_blank" rel="noopener noreferrer">
+                          Book via WhatsApp
+                        </a>
+                      </Button>
+                    </CardFooter>
+                  </Card>
+                ))}
+              </div>
+            </TabsContent>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                  {LESSON_PACKAGES.filter(pkg => pkg.level === level).map((lesson) => (
-                    <Card key={lesson.id} className="relative overflow-hidden">
-                      <CardHeader>
-                        <div className="flex justify-between items-start">
-                          <div>
-                            <CardTitle className="text-xl">{lesson.title}</CardTitle>
-                            <CardDescription className="mt-2">{lesson.description}</CardDescription>
+            {/* Private Lessons */}
+            <TabsContent value="private" className="space-y-8">
+              <Card className="bg-gradient-to-r from-green-50 to-emerald-50">
+                <CardHeader className="text-center">
+                  <CardTitle className="text-2xl text-green-900">Private Surf Lessons in Da Nang</CardTitle>
+                  <CardDescription className="text-lg text-gray-600">
+                    One-on-one instruction with certified instructors. Choose from 60, 90, or 120-minute sessions
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                {LESSON_PACKAGES.filter(pkg => pkg.type === "private").map((lesson) => (
+                  <Card key={lesson.id} className="relative overflow-hidden">
+                    <CardHeader>
+                      <div>
+                        <CardTitle className="text-xl">{lesson.title}</CardTitle>
+                        <CardDescription className="mt-2">{lesson.description}</CardDescription>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-4">
+                        <div className="flex items-center gap-4 text-sm text-gray-600">
+                          <div className="flex items-center gap-1">
+                            <Clock className="h-4 w-4" />
+                            {lesson.duration * 60} minutes
                           </div>
-                          <div className="text-right">
-                            <div className="text-2xl font-bold text-blue-600">
-                              ${lesson.priceUSD}
-                            </div>
-                            <div className="text-sm text-gray-500">
-                              {lesson.price.toLocaleString()} VND
-                            </div>
-                          </div>
-                        </div>
-                      </CardHeader>
-                      <CardContent>
-                        <div className="space-y-4">
-                          <div className="flex items-center gap-4 text-sm text-gray-600">
-                            <div className="flex items-center gap-1">
-                              <Clock className="h-4 w-4" />
-                              {lesson.duration}h
-                            </div>
-                            <div className="flex items-center gap-1">
-                              <Users className="h-4 w-4" />
-                              Max {lesson.maxParticipants} people
-                            </div>
-                          </div>
-                          <div>
-                            <h4 className="font-semibold mb-2">What&apos;s Included:</h4>
-                            <ul className="space-y-1">
-                              {lesson.includes.map((item, index) => (
-                                <li key={index} className="flex items-center gap-2 text-sm">
-                                  <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0" />
-                                  {item}
-                                </li>
-                              ))}
-                            </ul>
+                          <div className="flex items-center gap-1">
+                            <Users className="h-4 w-4" />
+                            1-on-1 instruction
                           </div>
                         </div>
-                      </CardContent>
-                      <CardFooter>
-                        <Button className="w-full">Book This Lesson</Button>
-                      </CardFooter>
-                    </Card>
-                  ))}
-                </div>
-              </TabsContent>
-            ))}
+                        <div>
+                          <h4 className="font-semibold mb-2">What&apos;s Included:</h4>
+                          <ul className="space-y-1">
+                            {lesson.includes.map((item, index) => (
+                              <li key={index} className="flex items-center gap-2 text-sm">
+                                <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0" />
+                                {item}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </CardContent>
+                    <CardFooter>
+                      <Button asChild className="w-full">
+                        <a href={`https://wa.me/${BUSINESS_INFO.whatsapp.replace('+', '')}?text=Hi! I'd like to book a ${lesson.title.toLowerCase()} in Da Nang.`} target="_blank" rel="noopener noreferrer">
+                          Book via WhatsApp
+                        </a>
+                      </Button>
+                    </CardFooter>
+                  </Card>
+                ))}
+              </div>
+            </TabsContent>
+
+            {/* Kids Lessons */}
+            <TabsContent value="kids" className="space-y-8">
+              <Card className="bg-gradient-to-r from-yellow-50 to-orange-50">
+                <CardHeader className="text-center">
+                  <CardTitle className="text-2xl text-orange-900">Kids Surf Lessons in Da Nang</CardTitle>
+                  <CardDescription className="text-lg text-gray-600">
+                    Safe and fun surf lessons for children of all ages with experienced instructors specialized in teaching kids
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+              <div className="grid grid-cols-1 gap-6">
+                {LESSON_PACKAGES.filter(pkg => pkg.type === "kids").map((lesson) => (
+                  <Card key={lesson.id} className="relative overflow-hidden">
+                    <CardHeader>
+                      <div>
+                        <CardTitle className="text-xl">{lesson.title}</CardTitle>
+                        <CardDescription className="mt-2">{lesson.description}</CardDescription>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-4">
+                        <div className="flex items-center gap-4 text-sm text-gray-600">
+                          <div className="flex items-center gap-1">
+                            <Clock className="h-4 w-4" />
+                            {lesson.duration * 60} minutes
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <Users className="h-4 w-4" />
+                            Max {lesson.maxParticipants} kids
+                          </div>
+                        </div>
+                        <div>
+                          <h4 className="font-semibold mb-2">What&apos;s Included:</h4>
+                          <ul className="space-y-1">
+                            {lesson.includes.map((item, index) => (
+                              <li key={index} className="flex items-center gap-2 text-sm">
+                                <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0" />
+                                {item}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </CardContent>
+                    <CardFooter>
+                      <Button asChild className="w-full">
+                        <a href={`https://wa.me/${BUSINESS_INFO.whatsapp.replace('+', '')}?text=Hi! I'd like to book a kids surf lesson in Da Nang.`} target="_blank" rel="noopener noreferrer">
+                          Book via WhatsApp
+                        </a>
+                      </Button>
+                    </CardFooter>
+                  </Card>
+                ))}
+              </div>
+            </TabsContent>
+
+            {/* Fundamentals Courses */}
+            <TabsContent value="course" className="space-y-8">
+              <Card className="bg-gradient-to-r from-purple-50 to-pink-50">
+                <CardHeader className="text-center">
+                  <CardTitle className="text-2xl text-purple-900">Fundamentals Surf Courses in Da Nang</CardTitle>
+                  <CardDescription className="text-lg text-gray-600">
+                    Comprehensive multi-lesson packages designed to create independent surfers through structured curriculum
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                {LESSON_PACKAGES.filter(pkg => pkg.type === "course").map((lesson) => (
+                  <Card key={lesson.id} className="relative overflow-hidden">
+                    <CardHeader>
+                      <div>
+                        <CardTitle className="text-xl">{lesson.title}</CardTitle>
+                        <CardDescription className="mt-2">{lesson.description}</CardDescription>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-4">
+                        <div className="flex items-center gap-4 text-sm text-gray-600">
+                          <div className="flex items-center gap-1">
+                            <Clock className="h-4 w-4" />
+                            {lesson.duration} hours total
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <Users className="h-4 w-4" />
+                            Private instruction
+                          </div>
+                        </div>
+                        <div>
+                          <h4 className="font-semibold mb-2">What&apos;s Included:</h4>
+                          <ul className="space-y-1">
+                            {lesson.includes.map((item, index) => (
+                              <li key={index} className="flex items-center gap-2 text-sm">
+                                <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0" />
+                                {item}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </CardContent>
+                    <CardFooter>
+                      <Button asChild className="w-full">
+                        <a href={`https://wa.me/${BUSINESS_INFO.whatsapp.replace('+', '')}?text=Hi! I'd like to book the ${lesson.title.toLowerCase()} in Da Nang.`} target="_blank" rel="noopener noreferrer">
+                          Book via WhatsApp
+                        </a>
+                      </Button>
+                    </CardFooter>
+                  </Card>
+                ))}
+              </div>
+            </TabsContent>
           </Tabs>
         </div>
       </section>
 
-      {/* Pricing Table */}
+      {/* Why Choose Our Lessons */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Lesson Pricing
+              Why Choose Surf Feeling for Surf Lessons in Da Nang?
             </h2>
-            <p className="text-xl text-gray-600">
-              Transparent pricing with no hidden fees
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Founded by experienced surfers committed to creating independent surfers, not students dependent on instructors
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto">
-            <Card>
-              <CardContent className="p-0">
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead className="w-[200px]">Lesson Type</TableHead>
-                      <TableHead>Duration</TableHead>
-                      <TableHead>Max People</TableHead>
-                      <TableHead>Price (USD)</TableHead>
-                      <TableHead>Price (VND)</TableHead>
-                      <TableHead className="text-right">Action</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {LESSON_PACKAGES.map((lesson) => (
-                      <TableRow key={lesson.id}>
-                        <TableCell className="font-medium">
-                          <div>
-                            <div>{lesson.title}</div>
-                            <Badge variant="secondary" className="mt-1">
-                              {lesson.level}
-                            </Badge>
-                          </div>
-                        </TableCell>
-                        <TableCell>{lesson.duration}h</TableCell>
-                        <TableCell>{lesson.maxParticipants}</TableCell>
-                        <TableCell className="font-semibold">${lesson.priceUSD}</TableCell>
-                        <TableCell className="text-gray-600">{lesson.price.toLocaleString()}</TableCell>
-                        <TableCell className="text-right">
-                          <Button size="sm">Book Now</Button>
-                        </TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <Card className="text-center">
+              <CardHeader>
+                <div className="w-16 h-16 bg-blue-100 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <Award className="h-8 w-8 text-blue-600" />
+                </div>
+                <CardTitle>Small Group Sizes</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">
+                  We keep group lessons to 2-3 students per instructor, ensuring personalized attention and faster progression for every surfer in Da Nang.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center">
+              <CardHeader>
+                <div className="w-16 h-16 bg-green-100 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <CheckCircle className="h-8 w-8 text-green-600" />
+                </div>
+                <CardTitle>Independence-Focused</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">
+                  Our curriculum emphasizes safety, wave theory, and self-practice to give you the skills needed to surf independently after your lessons.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center">
+              <CardHeader>
+                <div className="w-16 h-16 bg-purple-100 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <Users className="h-8 w-8 text-purple-600" />
+                </div>
+                <CardTitle>Experienced Instructors</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">
+                  Internationally certified instructors with years of experience teaching surfers of all skill levels, nationalities, ages, and genders.
+                </p>
               </CardContent>
             </Card>
           </div>
@@ -251,63 +425,25 @@ export default function LessonsPage() {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-cyan-600">
+      {/* Disclaimer Section */}
+      <section className="py-16 bg-gray-100">
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-              <div className="text-white">
-                <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-                  Ready to Start Surfing?
-                </h2>
-                <p className="text-xl mb-8 text-blue-100">
-                  Book your surf lesson today and experience the thrill of riding waves at Da Nang&apos;s best beaches with Surf Feeling&apos;s professional instructors.
-                </p>
-                
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center">
-                      <CheckCircle className="h-5 w-5 text-blue-900" />
-                    </div>
-                    <span>Certified professional instructors</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center">
-                      <CheckCircle className="h-5 w-5 text-blue-900" />
-                    </div>
-                    <span>All equipment included</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center">
-                      <CheckCircle className="h-5 w-5 text-blue-900" />
-                    </div>
-                    <span>Small group sizes for personalized attention</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center">
-                      <CheckCircle className="h-5 w-5 text-blue-900" />
-                    </div>
-                    <span>Safety-first approach</span>
-                  </div>
-                </div>
-
-                <div className="mt-8 p-6 bg-white/10 rounded-xl backdrop-blur-sm">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Star className="h-5 w-5 text-yellow-400" />
-                    <span className="font-semibold">4.9/5 Rating</span>
-                  </div>
-                  <p className="text-blue-100 text-sm">
-                    &ldquo;Amazing experience! The instructors were so patient and knowledgeable. Got me standing on the board in my first lesson!&rdquo; - Sarah M.
-                  </p>
-                </div>
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
+              <div className="flex items-center justify-center gap-2 mb-4">
+                <Waves className="h-6 w-6 text-yellow-600" />
+                <h3 className="text-xl font-semibold text-yellow-800">Important Notice</h3>
               </div>
-
-              <div>
-                <ContactForm 
-                  defaultService="lessons"
-                  title="Book Your Lesson"
-                  description="Tell us about your experience level and preferred dates"
-                />
+              <p className="text-yellow-700 leading-relaxed">
+                Surf Feeling reserves the right to cancel or reschedule lessons if wave conditions are unsuitable for surfing. 
+                Your safety is our top priority, and we will work with you to find the best alternative date and time for your lesson.
+              </p>
+              <div className="mt-6">
+                <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
+                  <a href={`https://wa.me/${BUSINESS_INFO.whatsapp.replace('+', '')}?text=Hi! I'd like to book a surf lesson in Da Nang and have some questions.`} target="_blank" rel="noopener noreferrer">
+                    Contact Us on WhatsApp
+                  </a>
+                </Button>
               </div>
             </div>
           </div>

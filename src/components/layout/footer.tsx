@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import { MapPin, Phone, Instagram, Facebook, MessageCircle } from "lucide-react"
+import { MapPin, Phone, Instagram, Facebook, MessageCircle, Clock } from "lucide-react"
 
 import { BUSINESS_INFO, NAVIGATION_ITEMS, SOCIAL_LINKS } from "@/lib/constants"
 
@@ -32,6 +32,10 @@ export function Footer() {
               <div className="flex items-center gap-2 text-sm">
                 <Phone className="h-4 w-4 text-blue-400" />
                 <span>{BUSINESS_INFO.phone}</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm">
+                <Clock className="h-4 w-4 text-blue-400" />
+                <span>{BUSINESS_INFO.hours}</span>
               </div>
             </div>
           </div>
@@ -70,7 +74,7 @@ export function Footer() {
             <h3 className="text-lg font-semibold mb-4">Contact & Follow Us</h3>
             <div className="mb-4">
               <a
-                href={`https://wa.me/${BUSINESS_INFO.whatsapp.replace('+', '')}`}
+                href={`https://wa.me/${BUSINESS_INFO.whatsapp.replace(/[^0-9]/g, "")}?text=Hi! I'd like to know more about your surf lessons and board rentals.`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 px-4 py-2 rounded-full transition-colors text-white font-medium mb-4"

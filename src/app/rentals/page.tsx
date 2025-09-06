@@ -1,24 +1,17 @@
 import { Metadata } from "next"
-import { Waves, Clock, Shield, MapPin, CheckCircle, Star } from "lucide-react"
+import Image from "next/image"
+import { Waves, Clock, Shield, MapPin, CheckCircle, Star, Truck, Target, MessageCircle } from "lucide-react"
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { ContactForm } from "@/components/shared/contact-form"
-import { RENTAL_BOARDS } from "@/lib/constants"
+import { BUSINESS_INFO, RENTAL_BOARDS } from "@/lib/constants"
 import { rentalsPageSEO } from "@/lib/seo"
 import { SurfboardRentalSchema } from "@/components/seo/business-schema"
 
 export const metadata: Metadata = rentalsPageSEO()
 
-const formatPrice = (price: number) => {
-  return `${price.toLocaleString()} VND`
-}
-
-const formatUSDPrice = (vndPrice: number) => {
-  return `$${Math.round(vndPrice / 25000)}`
-}
 
 export default function RentalsPage() {
   return (
@@ -40,14 +33,16 @@ export default function RentalsPage() {
               <span className="text-yellow-300">Da Nang</span>
             </h1>
             <p className="text-xl lg:text-2xl mb-8 text-cyan-100">
-              High-quality surfboards for every skill level. Rent by the hour, day, or week at Vietnam&apos;s best surf spots.
+              Surf Feeling is more than just a surf shop, we&apos;re a community. We pride ourselves on sharing the love of surfing with locals and travelers alike.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Button size="lg" className="bg-yellow-500 hover:bg-yellow-600 text-blue-900">
-                Rent a Board
+              <Button asChild size="lg" className="bg-yellow-500 hover:bg-yellow-600 text-blue-900">
+                <a href={`https://wa.me/${BUSINESS_INFO.whatsapp.replace('+', '')}?text=Hi! I'd like to rent a surfboard in Da Nang.`} target="_blank" rel="noopener noreferrer">
+                  Rent via WhatsApp
+                </a>
               </Button>
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-cyan-600">
-                View Our Fleet
+                View Board Types
               </Button>
             </div>
           </div>
@@ -55,15 +50,37 @@ export default function RentalsPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
       </section>
 
+      {/* Rentals Showcase Image */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="relative h-80 md:h-[600px] lg:h-[700px] rounded-lg overflow-hidden shadow-xl mb-8">
+              <Image
+                src="/images/rentals.jpg"
+                alt="Surf Feeling surfboard rentals in Da Nang"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+              <div className="absolute bottom-6 left-6 text-white">
+                <h3 className="text-2xl font-bold mb-2">Premium Surfboard Collection</h3>
+                <p className="text-lg opacity-90">Ready for your Da Nang surf adventure</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Why Choose Our Boards */}
-      <section className="py-16">
+      <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
               Why Rent from Surf Feeling?
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              We maintain the highest quality boards and offer the best service in Da Nang
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Surf Feeling has a variety of surfboards for rent in Da Nang: soft boards for beginners, mid-length fun boards for all skill levels, and high-performance shortboards. All our boards are well-maintained and affordably priced to ensure you have the ultimate surfing experience.
             </p>
           </div>
 
@@ -81,10 +98,10 @@ export default function RentalsPage() {
             <Card className="text-center">
               <CardContent className="pt-6">
                 <div className="w-12 h-12 bg-blue-100 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <MapPin className="h-6 w-6 text-blue-600" />
+                  <Truck className="h-6 w-6 text-blue-600" />
                 </div>
-                <h3 className="font-semibold mb-2">Perfect Locations</h3>
-                <p className="text-sm text-gray-600">Conveniently located at My Khe and Bac My An beaches</p>
+                <h3 className="font-semibold mb-2">Free Board Delivery</h3>
+                <p className="text-sm text-gray-600">We offer free board delivery anywhere within a 2km radius of our shop</p>
               </CardContent>
             </Card>
 
@@ -94,25 +111,25 @@ export default function RentalsPage() {
                   <Clock className="h-6 w-6 text-green-600" />
                 </div>
                 <h3 className="font-semibold mb-2">Flexible Timing</h3>
-                <p className="text-sm text-gray-600">Hourly, daily, and weekly rates to fit your surf schedule</p>
+                <p className="text-sm text-gray-600">Boards can be rented hourly, daily, weekly, and monthly</p>
               </CardContent>
             </Card>
 
             <Card className="text-center">
               <CardContent className="pt-6">
                 <div className="w-12 h-12 bg-yellow-100 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <Star className="h-6 w-6 text-yellow-600" />
+                  <Target className="h-6 w-6 text-yellow-600" />
                 </div>
                 <h3 className="font-semibold mb-2">Expert Advice</h3>
-                <p className="text-sm text-gray-600">Our team helps you choose the perfect board for your skill level</p>
+                <p className="text-sm text-gray-600">We will help you choose the right board for your skill level and the best surf spot based on conditions</p>
               </CardContent>
             </Card>
           </div>
         </div>
       </section>
 
-      {/* Board Showcase */}
-      <section className="py-16 bg-gray-50">
+      {/* Board Collection */}
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
@@ -123,109 +140,15 @@ export default function RentalsPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {RENTAL_BOARDS.map((board) => (
-              <Card key={board.id} className="overflow-hidden">
-                <div className="h-48 bg-gradient-to-br from-cyan-400 to-blue-500 relative">
-                  <div className="absolute inset-0 bg-black/10"></div>
-                  <div className="absolute top-4 right-4">
-                    <Badge variant={board.available ? "default" : "destructive"}>
-                      {board.available ? "Available" : "Rented"}
-                    </Badge>
-                  </div>
-                  <div className="absolute bottom-4 left-4 text-white">
-                    <div className="text-2xl font-bold">
-                      {formatUSDPrice(board.dailyRate)}/day
-                    </div>
-                    <div className="text-sm opacity-90">
-                      {formatPrice(board.dailyRate)}
-                    </div>
-                  </div>
-                </div>
-
-                <CardHeader>
-                  <CardTitle className="flex items-center justify-between">
-                    <span>{board.name}</span>
-                    <Badge variant="outline" className="capitalize">
-                      {board.type.replace("_", " ")}
-                    </Badge>
-                  </CardTitle>
-                  <CardDescription>{board.description}</CardDescription>
-                </CardHeader>
-
-                <CardContent>
-                  <div className="space-y-4">
-                    <div className="grid grid-cols-3 gap-4 text-center">
-                      <div>
-                        <div className="text-lg font-semibold text-cyan-600">
-                          {formatUSDPrice(board.hourlyRate)}
-                        </div>
-                        <div className="text-xs text-gray-500">Hourly</div>
-                        <div className="text-xs text-gray-400">{formatPrice(board.hourlyRate)}</div>
-                      </div>
-                      <div>
-                        <div className="text-lg font-semibold text-blue-600">
-                          {formatUSDPrice(board.dailyRate)}
-                        </div>
-                        <div className="text-xs text-gray-500">Daily</div>
-                        <div className="text-xs text-gray-400">{formatPrice(board.dailyRate)}</div>
-                      </div>
-                      <div>
-                        <div className="text-lg font-semibold text-green-600">
-                          {formatUSDPrice(board.weeklyRate)}
-                        </div>
-                        <div className="text-xs text-gray-500">Weekly</div>
-                        <div className="text-xs text-gray-400">{formatPrice(board.weeklyRate)}</div>
-                      </div>
-                    </div>
-
-                    <div>
-                      <h4 className="font-semibold mb-2">Features:</h4>
-                      <div className="flex flex-wrap gap-1">
-                        {board.features.map((feature, index) => (
-                          <Badge key={index} variant="secondary" className="text-xs">
-                            {feature}
-                          </Badge>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-
-                <CardFooter>
-                  <Button className="w-full" disabled={!board.available}>
-                    {board.available ? "Rent This Board" : "Currently Rented"}
-                  </Button>
-                </CardFooter>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing Table */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Rental Pricing
-            </h2>
-            <p className="text-xl text-gray-600">
-              Competitive rates with no hidden fees
-            </p>
-          </div>
-
           <div className="max-w-5xl mx-auto">
             <Card>
               <CardContent className="p-0">
                 <Table>
                   <TableHeader>
                     <TableRow>
-                      <TableHead className="w-[250px]">Board</TableHead>
+                      <TableHead className="w-[300px]">Board</TableHead>
                       <TableHead>Type</TableHead>
-                      <TableHead>Hourly</TableHead>
-                      <TableHead>Daily</TableHead>
-                      <TableHead>Weekly</TableHead>
+                      <TableHead>Features</TableHead>
                       <TableHead className="text-right">Status</TableHead>
                     </TableRow>
                   </TableHeader>
@@ -234,7 +157,7 @@ export default function RentalsPage() {
                       <TableRow key={board.id}>
                         <TableCell className="font-medium">
                           <div>
-                            <div>{board.name}</div>
+                            <div className="font-semibold">{board.name}</div>
                             <div className="text-sm text-gray-500 mt-1">{board.description}</div>
                           </div>
                         </TableCell>
@@ -244,16 +167,13 @@ export default function RentalsPage() {
                           </Badge>
                         </TableCell>
                         <TableCell>
-                          <div className="font-semibold">{formatUSDPrice(board.hourlyRate)}</div>
-                          <div className="text-xs text-gray-500">{formatPrice(board.hourlyRate)}</div>
-                        </TableCell>
-                        <TableCell>
-                          <div className="font-semibold text-blue-600">{formatUSDPrice(board.dailyRate)}</div>
-                          <div className="text-xs text-gray-500">{formatPrice(board.dailyRate)}</div>
-                        </TableCell>
-                        <TableCell>
-                          <div className="font-semibold text-green-600">{formatUSDPrice(board.weeklyRate)}</div>
-                          <div className="text-xs text-gray-500">{formatPrice(board.weeklyRate)}</div>
+                          <div className="flex flex-wrap gap-1">
+                            {board.features.map((feature, index) => (
+                              <Badge key={index} variant="secondary" className="text-xs">
+                                {feature}
+                              </Badge>
+                            ))}
+                          </div>
                         </TableCell>
                         <TableCell className="text-right">
                           <Badge variant={board.available ? "default" : "destructive"}>
@@ -270,153 +190,44 @@ export default function RentalsPage() {
         </div>
       </section>
 
-      {/* Rental Terms */}
-      <section className="py-16 bg-gray-50">
+      {/* Additional Services */}
+      <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                Rental Terms & Conditions
-              </h2>
-              <p className="text-xl text-gray-600">
-                Everything you need to know about renting with Surf Feeling
-              </p>
-            </div>
-
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <CheckCircle className="h-5 w-5 text-green-500" />
-                    What&apos;s Included
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                    <li className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                      <span>Surfboard in excellent condition</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                      <span>Leash and fins included</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                      <span>Board wax application</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                      <span>Basic safety briefing</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                      <span>Local surf conditions advice</span>
-                    </li>
-                  </ul>
-                </CardContent>
+              <Card className="p-4">
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="h-5 w-5 text-green-500 mt-1 flex-shrink-0" />
+                  <div>
+                    <strong>Rash guard included</strong> with every board rental. Wetsuit rental available upon request for additional fee.
+                  </div>
+                </div>
               </Card>
 
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Shield className="h-5 w-5 text-blue-500" />
-                    Rental Policies
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                    <li className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                      <span>Valid ID required for all rentals</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                      <span>Security deposit may be required</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                      <span>Damage fees apply if board is damaged</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                      <span>Late returns incur additional charges</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                      <span>Rental agreement must be signed</span>
-                    </li>
-                  </ul>
-                </CardContent>
+              <Card className="p-4">
+                <div className="flex items-start gap-3">
+                  <MessageCircle className="h-5 w-5 text-blue-500 mt-1 flex-shrink-0" />
+                  <div>
+                    <strong>Not confident about surfing on your own?</strong> Take a surf lesson or surf with one of our experienced guides.
+                  </div>
+                </div>
               </Card>
+            </div>
+            
+            <div className="text-center mt-8">
+              <p className="text-lg text-gray-600 mb-6">
+                Surf Feeling is also the only surf shop in Da Nang that offers free surfboard delivery and pick-up anywhere in the city.
+              </p>
+              <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
+                <a href={`https://wa.me/${BUSINESS_INFO.whatsapp.replace('+', '')}?text=Hi! I have questions about surfboard rentals in Da Nang.`} target="_blank" rel="noopener noreferrer">
+                  Contact Us on WhatsApp
+                </a>
+              </Button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="py-16 bg-gradient-to-r from-cyan-600 to-blue-600">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-              <div className="text-white">
-                <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-                  Ready to Hit the Waves?
-                </h2>
-                <p className="text-xl mb-8 text-cyan-100">
-                  Reserve your perfect surfboard today and experience Da Nang&apos;s amazing waves with confidence on quality equipment.
-                </p>
-                
-                <div className="space-y-4 mb-8">
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center">
-                      <CheckCircle className="h-5 w-5 text-blue-900" />
-                    </div>
-                    <span>High-quality boards for all skill levels</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center">
-                      <CheckCircle className="h-5 w-5 text-blue-900" />
-                    </div>
-                    <span>Flexible rental periods (hourly/daily/weekly)</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center">
-                      <CheckCircle className="h-5 w-5 text-blue-900" />
-                    </div>
-                    <span>Convenient beach locations</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center">
-                      <CheckCircle className="h-5 w-5 text-blue-900" />
-                    </div>
-                    <span>Expert recommendations for your level</span>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-2 gap-6">
-                  <div>
-                    <h3 className="font-semibold mb-2">My Khe Beach</h3>
-                    <p className="text-cyan-100 text-sm">Main location with full board selection</p>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-2">Bac My An</h3>
-                    <p className="text-cyan-100 text-sm">Quieter spot, boards available on request</p>
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <ContactForm 
-                  defaultService="rentals"
-                  title="Reserve a Board"
-                  description="Let us know what type of board and rental period you need"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   )
 }

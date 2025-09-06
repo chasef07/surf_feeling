@@ -4,10 +4,11 @@ export const BUSINESS_INFO = {
   name: "Surf Feeling",
   tagline: "Premium Surf Lessons & Board Rentals in Da Nang",
   description: "Experience the ultimate surfing adventure in Vietnam with Surf Feeling's professional instruction and premium equipment rentals at Da Nang's most beautiful beaches.",
-  phone: "+84 905 123 456",
-  whatsapp: "+84 905 123 456",
+  phone: "+84-79-238-0198",
+  whatsapp: "+84-79-238-0198",
   email: "info@surffeeling.vn",
-  address: "My Khe Beach, Da Nang, Vietnam",
+  address: "58 Thạch Lam, Phước Mỹ, Sơn Trà, Đà Nẵng 550000",
+  hours: "7:30 - 5:00 / 7 days a week",
   coordinates: {
     lat: 16.0544,
     lng: 108.2022
@@ -16,15 +17,14 @@ export const BUSINESS_INFO = {
 
 export const SOCIAL_LINKS = {
   instagram: "https://instagram.com/surffeeling",
-  facebook: "https://facebook.com/surffeelingdanang",
-  youtube: "https://youtube.com/@surffeeling"
+  facebook: "https://facebook.com/surffeelingdanang"
 } as const;
 
 export const NAVIGATION_ITEMS = [
   { href: "/", label: "Home" },
-  { href: "/lessons", label: "Surf Lessons" },
-  { href: "/rentals", label: "Board Rentals" },
-  { href: "/partners", label: "Partners" },
+  { href: "/lessons", label: "Lessons" },
+  { href: "/rentals", label: "Surfboard Rentals" },
+  { href: "/partners", label: "Helpful Links" },
   { href: "/blog", label: "Blog" }
 ] as const;
 
@@ -75,49 +75,89 @@ export const SEO_KEYWORDS = {
 } as const;
 
 export const LESSON_PACKAGES = [
+  // Group Lessons
   {
-    id: "beginner-single",
-    title: "Beginner Single Lesson",
+    id: "group-lesson",
+    title: "Group Surf Lessons",
     level: "beginner" as const,
-    duration: 2,
-    price: 800000, // VND
-    priceUSD: 32,
-    maxParticipants: 4,
-    description: "Perfect introduction to surfing with safety briefing and basic techniques",
-    includes: ["Professional instructor", "Surfboard rental", "Wetsuit", "Safety briefing", "Basic surf theory"]
-  },
-  {
-    id: "beginner-package",
-    title: "Beginner 3-Day Package",
-    level: "beginner" as const,
-    duration: 6, // 3 x 2 hours
-    price: 2100000, // VND
-    priceUSD: 85,
-    maxParticipants: 4,
-    description: "Complete beginner course over 3 days to build confidence and skills",
-    includes: ["3 x 2-hour lessons", "Professional instructor", "All equipment", "Progress tracking", "Certificate"]
-  },
-  {
-    id: "intermediate-single",
-    title: "Intermediate Session",
-    level: "intermediate" as const,
-    duration: 2,
-    price: 900000, // VND
-    priceUSD: 36,
+    type: "group" as const,
+    duration: 1.5,
     maxParticipants: 3,
-    description: "Advanced techniques and wave reading for intermediate surfers",
-    includes: ["Expert instructor", "Premium board selection", "Video analysis", "Technique refinement"]
+    description: "Beginner group classes offered daily with small class sizes (2-3 students per instructor). 90-minute lessons designed for beginners. Children can join if accompanied by an adult.",
+    includes: ["Surfboard rental", "Rash guard/wetsuit", "Sunscreen and hats", "Professional instruction", "Small group personalized attention"]
+  },
+  // Private Lessons
+  {
+    id: "private-60min",
+    title: "Private Lesson (60 minutes)",
+    level: "beginner" as const,
+    type: "private" as const,
+    duration: 1,
+    maxParticipants: 1,
+    description: "Tailored 60-minute private surf lesson for beginners or intermediates. Customized to fit the student's exact needs with flexible scheduling.",
+    includes: ["Surfboard rental", "Rash guard/wetsuit", "Sunscreen and hats", "One-on-one instruction", "Customized lesson plan"]
   },
   {
-    id: "advanced-coaching",
-    title: "Advanced Coaching",
+    id: "private-90min",
+    title: "Private Lesson (90 minutes)",
+    level: "intermediate" as const,
+    type: "private" as const,
+    duration: 1.5,
+    maxParticipants: 1,
+    description: "Extended 90-minute private lesson tailored for beginners or intermediates. Video analysis offered for intermediate students to accelerate learning.",
+    includes: ["Surfboard rental", "Rash guard/wetsuit", "Sunscreen and hats", "Extended coaching", "Video analysis (intermediate)"]
+  },
+  {
+    id: "private-120min",
+    title: "Private Lesson (120 minutes)",
     level: "advanced" as const,
-    duration: 3,
-    price: 1500000, // VND
-    priceUSD: 60,
-    maxParticipants: 2,
-    description: "High-performance coaching for advanced surfers",
-    includes: ["1-on-1 coaching", "Competition preparation", "Advanced maneuvers", "Video analysis", "Performance tips"]
+    type: "private" as const,
+    duration: 2,
+    maxParticipants: 1,
+    description: "Comprehensive 120-minute private lesson for beginners or intermediates. Maximum time for skill development with personalized instruction tailored to student needs.",
+    includes: ["Surfboard rental", "Rash guard/wetsuit", "Sunscreen and hats", "Intensive coaching", "Video analysis available"]
+  },
+  // Kids Lessons
+  {
+    id: "kids-60min",
+    title: "Kids Private Lesson (60 minutes)",
+    level: "beginner" as const,
+    type: "kids" as const,
+    duration: 1,
+    maxParticipants: 1,
+    description: "60-minute private surf lesson for children as young as 5 years old. Safe, fun, and age-appropriate instruction in a controlled environment.",
+    includes: ["Age-appropriate surfboard", "Kids wetsuit/rash guard", "Sunscreen and hats", "Child-specialized instruction", "Safety-first approach"]
+  },
+  {
+    id: "kids-90min",
+    title: "Kids Private Lesson (90 minutes)",
+    level: "beginner" as const,
+    type: "kids" as const,
+    duration: 1.5,
+    maxParticipants: 1,
+    description: "Extended 90-minute private lesson for children as young as 5 years old. More time for skill development with patient, experienced instructors.",
+    includes: ["Age-appropriate surfboard", "Kids wetsuit/rash guard", "Sunscreen and hats", "Extended kid-friendly instruction", "Fun learning environment"]
+  },
+  // Fundamentals Courses
+  {
+    id: "basic-fundamentals",
+    title: "Beginner Surf Course (3 Lessons)",
+    level: "beginner" as const,
+    type: "course" as const,
+    duration: 4.5, // 3 x 90 minutes
+    maxParticipants: 1,
+    description: "3-lesson package designed to teach students the fundamentals of surfing with a structure tailored to fit their exact needs. Foundation course for independent surfing.",
+    includes: ["3 private lessons (90 min each)", "All equipment included", "Structured curriculum", "Fundamentals mastery", "Tailored to student needs"]
+  },
+  {
+    id: "indepth-fundamentals",
+    title: "Beginner Surf Course (5 Lessons)",
+    level: "intermediate" as const,
+    type: "course" as const,
+    duration: 7.5, // 5 x 90 minutes
+    maxParticipants: 1,
+    description: "5-lesson package designed to teach comprehensive surfing fundamentals with structure tailored to fit exact student needs. Complete foundation for surf independence.",
+    includes: ["5 private lessons (90 min each)", "All equipment included", "Comprehensive curriculum", "Advanced fundamentals", "Complete independence training"]
   }
 ] as const;
 

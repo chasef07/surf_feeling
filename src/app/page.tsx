@@ -118,11 +118,12 @@ export default function HomePage() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/api/placeholder/1920/1080"
+            src="/images/danangset.jpg"
             alt="Surfing at My Khe Beach, Da Nang"
             fill
             className="object-cover object-center"
             priority
+            sizes="100vw"
           />
           <div className="absolute inset-0 bg-black/40" />
         </div>
@@ -150,7 +151,6 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" className="text-lg px-8 py-6">
               <Link href="/lessons">
-                <Trophy className="mr-2 h-5 w-5" />
                 View Surf Lessons
               </Link>
             </Button>
@@ -163,12 +163,41 @@ export default function HomePage() {
           
           <div className="mt-8 flex items-center justify-center">
             <a 
-              href={`tel:${BUSINESS_INFO.phone}`}
+              href={`https://wa.me/${BUSINESS_INFO.whatsapp.replace(/[^0-9]/g, "")}?text=Hi! I'd like to book a surf lesson in Da Nang.`}
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-2 bg-white/20 backdrop-blur hover:bg-white/30 px-6 py-3 rounded-full transition-all duration-300 text-white font-medium border border-white/30 hover:border-white/50 shadow-lg"
             >
               <Phone className="h-5 w-5" />
               Call Now
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Shop Introduction */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <div>
+              <h2 className="text-4xl font-bold mb-6">About Our Surf Shop in Da Nang</h2>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Founded in 2024, Surf Feeling was created by experienced surfers who believe in teaching true independence on the waves. 
+                Just as our surf lessons in Da Nang focus on creating self-sufficient surfers, our surf shop provides the essential gear and surfboards 
+                you need to continue your surf journey long after your lesson ends. From beginner-friendly surfboards to premium surf accessories, 
+                we stock quality equipment trusted by our internationally certified instructors at My Khe Beach.
+              </p>
+            </div>
+            <div className="relative">
+              <Image
+                src="/images/paddle.JPG"
+                alt="Surfing paddle at Da Nang beach"
+                width={500}
+                height={400}
+                className="rounded-lg shadow-lg object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 500px"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -199,16 +228,20 @@ export default function HomePage() {
               <CardContent>
                 <div className="space-y-3 mb-6">
                   <div className="flex justify-between">
-                    <span>Beginner Single</span>
-                    <span className="font-semibold">800,000 VND ($32)</span>
+                    <span>Group Lessons (90 min)</span>
+                    <span className="font-semibold">Small Groups 2-3 Students</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>3-Day Package</span>
-                    <span className="font-semibold">2,100,000 VND ($85)</span>
+                    <span>Private Lessons</span>
+                    <span className="font-semibold">60 | 90 | 120 Minutes</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Advanced Coaching</span>
-                    <span className="font-semibold">1,500,000 VND ($60)</span>
+                    <span>Kids Surf Lessons</span>
+                    <span className="font-semibold">All Ages Welcome</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Fundamentals Courses</span>
+                    <span className="font-semibold">3 or 5 Lesson Packages</span>
                   </div>
                 </div>
                 <Button asChild className="w-full">
@@ -228,17 +261,14 @@ export default function HomePage() {
               </CardHeader>
               <CardContent>
                 <div className="space-y-3 mb-6">
-                  <div className="flex justify-between">
-                    <span>Soft Longboard</span>
-                    <span className="font-semibold">300,000 VND/day</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Funboard</span>
-                    <span className="font-semibold">350,000 VND/day</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Performance Board</span>
-                    <span className="font-semibold">450,000 VND/day</span>
+                  <div className="space-y-2">
+                    <div className="font-medium text-gray-700">Available Board Types:</div>
+                    <ul className="space-y-1 text-sm text-gray-600">
+                      <li>• Soft-top Longboards - Perfect for beginners</li>
+                      <li>• Traditional Longboards - Classic style surfing</li>
+                      <li>• Funboards - Great all-around boards</li>
+                      <li>• Performance Shortboards - For advanced surfers</li>
+                    </ul>
                   </div>
                 </div>
                 <Button asChild variant="outline" className="w-full">
@@ -334,35 +364,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="py-16 bg-black text-white">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold mb-4">Ready to Surf?</h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Join thousands of happy surfers who learned with Surf Feeling. 
-            Discover our lessons and equipment to experience the best of Da Nang&apos;s waves!
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" variant="secondary" className="text-lg px-8 py-6">
-              <Link href="/lessons">
-                View Surf Lessons
-              </Link>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="text-lg px-8 py-6 border-white text-white hover:bg-white hover:text-black">
-              <a href={`https://wa.me/${BUSINESS_INFO.whatsapp.replace('+', '')}`}>
-                <MessageCircle className="mr-2 h-5 w-5" />
-                Chat on WhatsApp
-              </a>
-            </Button>
-          </div>
-          
-          <div className="mt-8 text-sm opacity-90">
-            <p>Contact us: {BUSINESS_INFO.phone}</p>
-            <p>{BUSINESS_INFO.address}</p>
-          </div>
-        </div>
-      </section>
     </>
   );
 }
