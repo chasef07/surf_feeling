@@ -19,8 +19,9 @@ export default function RentalsPage() {
       {/* Structured Data for Surfboard Rentals */}
       <SurfboardRentalSchema />
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-cyan-600 to-blue-600 text-white">
-        <div className="container mx-auto px-4 py-16 lg:py-24">
+      <section className="relative bg-slate-800 text-white">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+        <div className="relative z-10 container mx-auto px-4 py-16 lg:py-24">
           <div className="max-w-3xl mx-auto text-center">
             <div className="mb-6">
               <Badge variant="secondary" className="mb-4 bg-white/20 text-white border-white/30">
@@ -30,24 +31,20 @@ export default function RentalsPage() {
             </div>
             <h1 className="text-4xl lg:text-6xl font-bold mb-6">
               Surfboard Rentals in <br />
-              <span className="text-yellow-300">Da Nang</span>
+              <span className="text-white">Da Nang</span>
             </h1>
-            <p className="text-xl lg:text-2xl mb-8 text-cyan-100">
+            <p className="text-xl lg:text-2xl mb-8 text-blue-100">
               Surf Feeling is more than just a surf shop, we&apos;re a community. We pride ourselves on sharing the love of surfing with locals and travelers alike.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Button asChild size="lg" className="bg-yellow-500 hover:bg-yellow-600 text-blue-900">
-                <a href={`https://wa.me/${BUSINESS_INFO.whatsapp.replace('+', '')}?text=Hi! I'd like to rent a surfboard in Da Nang.`} target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/84792380198?text=Hi! I'd like to rent a surfboard in Da Nang." target="_blank" rel="noopener noreferrer">
+                <Button size="lg" className="bg-white hover:bg-blue-50 text-blue-900">
                   Rent via WhatsApp
-                </a>
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-cyan-600">
-                View Board Types
-              </Button>
+                </Button>
+              </a>
             </div>
           </div>
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
       </section>
 
       {/* Rentals Showcase Image */}
@@ -149,7 +146,6 @@ export default function RentalsPage() {
                       <TableHead className="w-[300px]">Board</TableHead>
                       <TableHead>Type</TableHead>
                       <TableHead>Features</TableHead>
-                      <TableHead className="text-right">Status</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
@@ -174,11 +170,6 @@ export default function RentalsPage() {
                               </Badge>
                             ))}
                           </div>
-                        </TableCell>
-                        <TableCell className="text-right">
-                          <Badge variant={board.available ? "default" : "destructive"}>
-                            {board.available ? "Available" : "Rented"}
-                          </Badge>
                         </TableCell>
                       </TableRow>
                     ))}
@@ -216,10 +207,10 @@ export default function RentalsPage() {
             
             <div className="text-center mt-8">
               <p className="text-lg text-gray-600 mb-6">
-                Surf Feeling is also the only surf shop in Da Nang that offers free surfboard delivery and pick-up anywhere in the city.
+                Surf Feeling is also the only surf shop in Da Nang that offers free surfboard delivery and pick-up anywhere in the city. We are always changing our board stock. Contact us to see our most up to date board collection.
               </p>
               <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
-                <a href={`https://wa.me/${BUSINESS_INFO.whatsapp.replace('+', '')}?text=Hi! I have questions about surfboard rentals in Da Nang.`} target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/84792380198?text=Hi! I have questions about surfboard rentals in Da Nang." target="_blank" rel="noopener noreferrer">
                   Contact Us on WhatsApp
                 </a>
               </Button>

@@ -27,7 +27,14 @@ export function Footer() {
             <div className="space-y-2">
               <div className="flex items-center gap-2 text-sm">
                 <MapPin className="h-4 w-4 text-blue-400" />
-                <span>{BUSINESS_INFO.address}</span>
+                <a
+                  href={`https://www.google.com/maps/search/${encodeURIComponent(BUSINESS_INFO.address)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-blue-400 transition-colors"
+                >
+                  {BUSINESS_INFO.address}
+                </a>
               </div>
               <div className="flex items-center gap-2 text-sm">
                 <Phone className="h-4 w-4 text-blue-400" />

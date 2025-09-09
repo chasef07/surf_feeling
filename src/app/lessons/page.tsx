@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { ContactForm } from "@/components/shared/contact-form"
-import { BUSINESS_INFO, LESSON_PACKAGES, INSTRUCTORS, SURF_LEVELS } from "@/lib/constants"
+import { BUSINESS_INFO, LESSON_PACKAGES, SURF_LEVELS } from "@/lib/constants"
 import { lessonsPageSEO } from "@/lib/seo"
 import { SurfLessonsServiceSchema } from "@/components/seo/business-schema"
 
@@ -19,8 +19,9 @@ export default function LessonsPage() {
       {/* Structured Data for Surf Lessons Service */}
       <SurfLessonsServiceSchema />
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-blue-600 to-cyan-600 text-white">
-        <div className="container mx-auto px-4 py-16 lg:py-24">
+      <section className="relative bg-slate-800 text-white">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+        <div className="relative z-10 container mx-auto px-4 py-16 lg:py-24">
           <div className="max-w-3xl mx-auto text-center">
             <div className="mb-6">
               <Badge variant="secondary" className="mb-4 bg-white/20 text-white border-white/30">
@@ -30,22 +31,20 @@ export default function LessonsPage() {
             </div>
             <h1 className="text-4xl lg:text-6xl font-bold mb-6">
               Surf Lessons in <br />
-              <span className="text-yellow-300">Da Nang</span>
+              <span className="text-white">Da Nang</span>
             </h1>
             <p className="text-xl lg:text-2xl mb-8 text-blue-100">
               Learn to surf with {BUSINESS_INFO.name}&apos;s certified instructors at Vietnam&apos;s most beautiful beaches
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Button size="lg" className="bg-yellow-500 hover:bg-yellow-600 text-blue-900">
-                Book Your Lesson
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600">
-                View Packages
-              </Button>
+              <a href="https://wa.me/84792380198?text=Hi! I'd like to book a surf lesson in Da Nang." target="_blank" rel="noopener noreferrer">
+                <Button size="lg" className="bg-white hover:bg-blue-50 text-blue-900">
+                  Book Your Lesson
+                </Button>
+              </a>
             </div>
           </div>
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
       </section>
 
       {/* Lesson Types Tabs */}
@@ -136,7 +135,7 @@ export default function LessonsPage() {
                     </CardContent>
                     <CardFooter>
                       <Button asChild className="w-full">
-                        <a href={`https://wa.me/${BUSINESS_INFO.whatsapp.replace('+', '')}?text=Hi! I'd like to book a group surf lesson in Da Nang.`} target="_blank" rel="noopener noreferrer">
+                        <a href="https://wa.me/84792380198?text=Hi! I'd like to book a group surf lesson in Da Nang." target="_blank" rel="noopener noreferrer">
                           Book via WhatsApp
                         </a>
                       </Button>
@@ -152,7 +151,7 @@ export default function LessonsPage() {
                 <CardHeader className="text-center">
                   <CardTitle className="text-2xl text-green-900">Private Surf Lessons in Da Nang</CardTitle>
                   <CardDescription className="text-lg text-gray-600">
-                    One-on-one instruction with certified instructors. Choose from 60, 90, or 120-minute sessions
+                    Personalized instruction with certified instructors. Available as one-on-one sessions or private group lessons. Choose from 60, 90, or 120-minute sessions
                   </CardDescription>
                 </CardHeader>
               </Card>
@@ -174,7 +173,7 @@ export default function LessonsPage() {
                           </div>
                           <div className="flex items-center gap-1">
                             <Users className="h-4 w-4" />
-                            1-on-1 instruction
+                            1-on-1 or private group
                           </div>
                         </div>
                         <div>
@@ -192,7 +191,7 @@ export default function LessonsPage() {
                     </CardContent>
                     <CardFooter>
                       <Button asChild className="w-full">
-                        <a href={`https://wa.me/${BUSINESS_INFO.whatsapp.replace('+', '')}?text=Hi! I'd like to book a ${lesson.title.toLowerCase()} in Da Nang.`} target="_blank" rel="noopener noreferrer">
+                        <a href="https://wa.me/84792380198?text=Hi! I'd like to book a private surf lesson in Da Nang." target="_blank" rel="noopener noreferrer">
                           Book via WhatsApp
                         </a>
                       </Button>
@@ -248,7 +247,7 @@ export default function LessonsPage() {
                     </CardContent>
                     <CardFooter>
                       <Button asChild className="w-full">
-                        <a href={`https://wa.me/${BUSINESS_INFO.whatsapp.replace('+', '')}?text=Hi! I'd like to book a kids surf lesson in Da Nang.`} target="_blank" rel="noopener noreferrer">
+                        <a href="https://wa.me/84792380198?text=Hi! I'd like to book a kids surf lesson in Da Nang." target="_blank" rel="noopener noreferrer">
                           Book via WhatsApp
                         </a>
                       </Button>
@@ -304,7 +303,7 @@ export default function LessonsPage() {
                     </CardContent>
                     <CardFooter>
                       <Button asChild className="w-full">
-                        <a href={`https://wa.me/${BUSINESS_INFO.whatsapp.replace('+', '')}?text=Hi! I'd like to book the ${lesson.title.toLowerCase()} in Da Nang.`} target="_blank" rel="noopener noreferrer">
+                        <a href="https://wa.me/84792380198?text=Hi! I'd like to book a surf course in Da Nang." target="_blank" rel="noopener noreferrer">
                           Book via WhatsApp
                         </a>
                       </Button>
@@ -375,55 +374,6 @@ export default function LessonsPage() {
         </div>
       </section>
 
-      {/* Instructors */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Meet Your Instructors
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Learn from certified surf professionals with years of experience teaching in Da Nang&apos;s waters
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {INSTRUCTORS.map((instructor) => (
-              <Card key={instructor.id} className="text-center">
-                <CardHeader>
-                  <div className="w-24 h-24 bg-gradient-to-br from-blue-400 to-cyan-600 rounded-full mx-auto mb-4 flex items-center justify-center text-2xl font-bold text-white">
-                    {instructor.nickname[0]}
-                  </div>
-                  <CardTitle>{instructor.name}</CardTitle>
-                  <div className="space-y-2">
-                    <Badge variant="outline" className="mb-2">{instructor.speciality}</Badge>
-                    <CardDescription>{instructor.experience} experience</CardDescription>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-gray-600 mb-4">{instructor.bio}</p>
-                  <div className="space-y-2">
-                    <div>
-                      <h4 className="font-semibold text-sm">Languages:</h4>
-                      <p className="text-sm text-gray-600">{instructor.languages.join(", ")}</p>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-sm">Certifications:</h4>
-                      <div className="flex flex-wrap gap-1 mt-1">
-                        {instructor.certifications.map((cert, index) => (
-                          <Badge key={index} variant="secondary" className="text-xs">
-                            {cert}
-                          </Badge>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Disclaimer Section */}
       <section className="py-16 bg-gray-100">
@@ -440,7 +390,7 @@ export default function LessonsPage() {
               </p>
               <div className="mt-6">
                 <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
-                  <a href={`https://wa.me/${BUSINESS_INFO.whatsapp.replace('+', '')}?text=Hi! I'd like to book a surf lesson in Da Nang and have some questions.`} target="_blank" rel="noopener noreferrer">
+                  <a href="https://wa.me/84792380198?text=Hi! I'd like to book a surf lesson in Da Nang and have some questions." target="_blank" rel="noopener noreferrer">
                     Contact Us on WhatsApp
                   </a>
                 </Button>

@@ -47,12 +47,12 @@ export default function HelpfulLinksPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-blue-600 to-cyan-600 text-white">
+      <section className="relative bg-slate-800 text-white">
         <div className="container mx-auto px-4 py-16 lg:py-24">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl lg:text-6xl font-bold mb-6">
               Helpful <br />
-              <span className="text-yellow-300">Links</span>
+              <span className="text-white">Links</span>
             </h1>
             <p className="text-xl lg:text-2xl mb-8 text-blue-100">
               We have no financial interest in the businesses listed below. They&apos;re here because we know they&apos;re reputable and share the same genuine passion for their craft.

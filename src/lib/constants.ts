@@ -7,7 +7,7 @@ export const BUSINESS_INFO = {
   phone: "+84-79-238-0198",
   whatsapp: "+84-79-238-0198",
   email: "info@surffeeling.vn",
-  address: "58 Thạch Lam, Phước Mỹ, Sơn Trà, Đà Nẵng 550000",
+  address: "58 Thạch Lam, Phước Mỹ, Sơn Trà, Đà Nẵng 550000, Vietnam",
   hours: "7:30 - 5:00 / 7 days a week",
   coordinates: {
     lat: 16.0544,
@@ -163,48 +163,88 @@ export const LESSON_PACKAGES = [
 
 export const RENTAL_BOARDS = [
   {
-    id: "soft-longboard-9ft",
-    name: "Soft-top Longboard 9'0\"",
-    type: "softboard" as const,
-    description: "Perfect for beginners - stable, safe, and forgiving",
-    hourlyRate: 50000, // VND
-    dailyRate: 300000,
-    weeklyRate: 1800000,
-    available: true,
-    features: ["Soft foam top", "Beginner friendly", "Very stable", "Safe fins"]
+    id: "hp-longboard-9ft2",
+    name: "9 ft 2 in High Performance Longboard",
+    type: "longboard" as const,
+    description: "Single fin, advanced surfers",
+    features: ["Single fin", "Advanced surfers", "High performance"]
   },
   {
-    id: "funboard-8ft",
-    name: "Funboard 8'0\"",
+    id: "soft-longboard-9ft",
+    name: "9 ft Soft top",
+    type: "softboard" as const,
+    description: "Beginner friendly, very stable, safe fins",
+    features: ["Beginner friendly", "Very stable", "Safe fins"]
+  },
+  {
+    id: "soft-longboard-8ft",
+    name: "8 ft Soft top",
+    type: "softboard" as const,
+    description: "Beginner friendly, very stable, safe fins",
+    features: ["Beginner friendly", "Very stable", "Safe fins"]
+  },
+  {
+    id: "mini-mal-8ft",
+    name: "8ft Mini Mal",
     type: "funboard" as const,
-    description: "Great all-around board for intermediate surfers",
-    hourlyRate: 60000,
-    dailyRate: 350000,
-    weeklyRate: 2100000,
-    available: true,
-    features: ["Versatile design", "Good stability", "Easy paddle", "Progressive board"]
+    description: "Hardtop, thruster fins, stable, easy paddle",
+    features: ["Hardtop", "Thruster fins", "Stable", "Easy paddle"]
+  },
+  {
+    id: "funboard-7ft6",
+    name: "7ft 6in Funboard",
+    type: "funboard" as const,
+    description: "Versatile, stable, easy paddle, progressive board",
+    features: ["Versatile", "Stable", "Easy paddle", "Progressive board"]
+  },
+  {
+    id: "soft-funboard-7ft6",
+    name: "7ft 6in Soft top",
+    type: "softboard" as const,
+    description: "Beginner friendly, very stable, safe fins",
+    features: ["Beginner friendly", "Very stable", "Safe fins"]
+  },
+  {
+    id: "fish-6ft8",
+    name: "6ft 8in Fish board",
+    type: "fish" as const,
+    description: "Intermediate/advanced surfers, easy paddle, stable",
+    features: ["Intermediate/advanced", "Easy paddle", "Stable"]
+  },
+  {
+    id: "fish-6ft6",
+    name: "6ft 6in Fish board",
+    type: "fish" as const,
+    description: "Intermediate/advanced surfers, easy paddle, stable",
+    features: ["Intermediate/advanced", "Easy paddle", "Stable"]
+  },
+  {
+    id: "stepup-6ft4",
+    name: "6ft 4in Step-up",
+    type: "shortboard" as const,
+    description: "Advanced surfers, good for big waves, responsive",
+    features: ["Advanced surfers", "Big waves", "Responsive"]
   },
   {
     id: "shortboard-6ft",
-    name: "Performance Shortboard 6'2\"",
+    name: "6ft shortboard",
     type: "shortboard" as const,
-    description: "High-performance board for advanced surfers",
-    hourlyRate: 80000,
-    dailyRate: 450000,
-    weeklyRate: 2700000,
-    available: true,
-    features: ["High performance", "Advanced surfers", "Responsive", "Competition ready"]
+    description: "Advanced surfers, responsive, high performance",
+    features: ["Advanced surfers", "Responsive", "High performance"]
   },
   {
-    id: "longboard-9-5ft",
-    name: "Traditional Longboard 9'6\"",
-    type: "longboard" as const,
-    description: "Classic longboard for stylish surfing",
-    hourlyRate: 70000,
-    dailyRate: 400000,
-    weeklyRate: 2400000,
-    available: true,
-    features: ["Classic style", "Nose riding", "Stable platform", "Smooth rides"]
+    id: "shortboard-5ft8",
+    name: "5ft 8in shortboard",
+    type: "shortboard" as const,
+    description: "Advanced surfers, high volume, responsive, high performance",
+    features: ["Advanced surfers", "High volume", "Responsive", "High performance"]
+  },
+  {
+    id: "fish-5ft8",
+    name: "5ft 8in fish board",
+    type: "fish" as const,
+    description: "Advanced surfers, high volume, twin fin, high performance",
+    features: ["Advanced surfers", "High volume", "Twin fin", "High performance"]
   }
 ] as const;
 

@@ -24,7 +24,7 @@ export default function BlogPage() {
       <BlogListingSchema />
       <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-blue-600 to-cyan-600 text-white">
+      <section className="relative bg-slate-800 text-white">
         <div className="container mx-auto px-4 py-16 lg:py-24">
           <div className="max-w-4xl mx-auto text-center">
             <div className="mb-6">
@@ -35,17 +35,16 @@ export default function BlogPage() {
             </div>
             <h1 className="text-4xl lg:text-6xl font-bold mb-6">
               {BUSINESS_INFO.name} <br />
-              <span className="text-yellow-300">Surf Blog</span>
+              <span className="text-white">Surf Blog</span>
             </h1>
             <p className="text-xl lg:text-2xl mb-8 text-blue-100">
               Your ultimate guide to surfing in Da Nang and Vietnam. Get the latest wave reports, local spots, and expert tips from our professional instructors.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Button size="lg" className="bg-yellow-500 hover:bg-yellow-600 text-blue-900">
-                Latest Surf Report
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600">
-                Browse All Posts
+              <Button asChild size="lg" className="bg-white hover:bg-blue-50 text-blue-900">
+                <a href={`https://wa.me/${BUSINESS_INFO.whatsapp.replace('+', '')}?text=Hi! I'd like to get the latest surf report for Da Nang.`} target="_blank" rel="noopener noreferrer">
+                  Latest Surf Report
+                </a>
               </Button>
             </div>
           </div>
