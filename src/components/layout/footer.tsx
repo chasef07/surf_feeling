@@ -14,7 +14,7 @@ export function Footer() {
             <div className="flex items-center gap-3 mb-4">
               <Image
                 src="/logo.png"
-                alt="Surf Feeling Logo"
+                alt="Surf Feeling - Premier surf school and board rental in Da Nang, Vietnam"
                 width={32}
                 height={32}
                 className="rounded-full"

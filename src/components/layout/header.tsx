@@ -23,7 +23,7 @@ export function Header() {
           <Link href="/" className="flex items-center gap-3">
             <Image
               src="/logo.png"
-              alt="Surf Feeling Logo"
+              alt="Surf Feeling - Premier surf school and board rental in Da Nang, Vietnam"
               width={40}
               height={40}
               className="rounded-full"

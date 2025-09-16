@@ -93,8 +93,8 @@ export function generateMetadata({
     alternates: {
       canonical: canonical || SITE_URL,
       languages: {
-        'en-US': canonical || SITE_URL,
-        'vi-VN': `${canonical || SITE_URL}/vi`,
+        'en': canonical || SITE_URL,
+        'x-default': canonical || SITE_URL,
       },
     },
     other: {

@@ -54,7 +54,7 @@ export default function RentalsPage() {
             <div className="relative h-80 md:h-[600px] lg:h-[700px] rounded-lg overflow-hidden shadow-xl mb-8">
               <Image
                 src="/images/rentals.jpg"
-                alt="Surf Feeling surfboard rentals in Da Nang"
+                alt="Premium surfboard rental collection at Surf Feeling Da Nang - longboards, shortboards, funboards for all skill levels"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"

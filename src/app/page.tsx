@@ -119,7 +119,7 @@ export default function HomePage() {
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/danangset.jpg"
-            alt="Surfing at My Khe Beach, Da Nang"
+            alt="Professional surf lessons at My Khe Beach, Da Nang Vietnam - Surf Feeling surf school with beginner-friendly waves"
             fill
             className="object-cover object-center"
             priority
@@ -191,7 +191,7 @@ export default function HomePage() {
             <div className="relative">
               <Image
                 src="/images/paddle.JPG"
-                alt="Surfing paddle at Da Nang beach"
+                alt="Surf instructor paddling with professional surfboard at Da Nang beach - Surf Feeling surf school equipment"
                 width={500}
                 height={400}
                 className="rounded-lg shadow-lg object-cover"
@@ -303,7 +303,7 @@ export default function HomePage() {
                 <CardHeader>
                   <div className="flex items-start gap-4">
                     <Avatar>
-                      <AvatarImage src={review.avatar} alt={review.name} />
+                      <AvatarImage src={review.avatar} alt={`${review.name} - verified customer review for Surf Feeling Da Nang surf school`} />
                       <AvatarFallback>{review.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
                     </Avatar>
                     <div className="flex-1">
