@@ -115,10 +115,23 @@ export function Footer() {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} {BUSINESS_INFO.name}. All rights reserved.
-            </p>
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="flex flex-col items-center md:items-start gap-2">
+              <p className="text-gray-400 text-sm">
+                © {new Date().getFullYear()} {BUSINESS_INFO.name}. All rights reserved.
+              </p>
+              <p className="text-gray-500 text-xs">
+                Powered by{" "}
+                <a
+                  href="https://databuddiessolutions.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-400 hover:text-blue-300 transition-colors"
+                >
+                  Data Buddies Solutions
+                </a>
+              </p>
+            </div>
             <div className="flex gap-6 mt-4 md:mt-0">
               <Link href="/privacy" className="text-gray-400 hover:text-blue-400 text-sm transition-colors">
                 Privacy Policy
