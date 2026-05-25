@@ -1,6 +1,6 @@
 import { Metadata } from "next"
 import Link from "next/link"
-import { Calendar, Clock, User, ArrowRight, TrendingUp, Waves } from "lucide-react"
+import { Clock, User, ArrowRight, Waves } from "lucide-react"
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"

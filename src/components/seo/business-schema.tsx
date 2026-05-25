@@ -1,6 +1,7 @@
 'use client'
 
 import { generateBusinessSchema, generateFAQSchema } from '@/lib/seo'
+import { BUSINESS_INFO } from '@/lib/constants'
 
 export function BusinessSchema() {
   const businessData = generateBusinessSchema()
@@ -43,16 +44,16 @@ export function SurfLessonsServiceSchema() {
           "@type": "Offer",
           "@id": "https://surffeeling.vn/lessons#beginner-single",
           "name": "Beginner Single Lesson",
-          "description": "Perfect introduction to surfing with safety briefing and basic techniques. 2-hour lesson with professional instructor.",
+          "description": "Perfect introduction to surfing with safety briefing and basic techniques. 90-minute lesson with professional instructor.",
           "price": "32.00",
           "priceCurrency": "USD",
-          "priceValidUntil": "2025-12-31",
+          "priceValidUntil": "2026-12-31",
           "availability": "https://schema.org/InStock",
-          "validFrom": "2025-01-01",
+          "validFrom": "2026-01-01",
           "itemOffered": {
             "@type": "Service",
-            "name": "2-Hour Beginner Surf Lesson",
-            "description": "Includes professional instructor, surfboard rental, wetsuit, safety briefing, and basic surf theory"
+            "name": "90-Minute Beginner Surf Lesson",
+            "description": "Includes professional instructor, surfboard rental, safety briefing, and basic surf theory"
           },
           "eligibleRegion": {
             "@type": "Country",
@@ -62,33 +63,33 @@ export function SurfLessonsServiceSchema() {
         {
           "@type": "Offer",
           "@id": "https://surffeeling.vn/lessons#beginner-package",
-          "name": "Beginner 3-Day Package",
-          "description": "Complete beginner course over 3 days to build confidence and skills. Best value for new surfers.",
+          "name": "Beginner 3-Lesson Course",
+          "description": "Complete beginner course with three 90-minute lessons to build confidence and skills.",
           "price": "85.00",
           "priceCurrency": "USD", 
-          "priceValidUntil": "2025-12-31",
+          "priceValidUntil": "2026-12-31",
           "availability": "https://schema.org/InStock",
-          "validFrom": "2025-01-01",
+          "validFrom": "2026-01-01",
           "itemOffered": {
             "@type": "Service",
-            "name": "3-Day Beginner Surf Package",
-            "description": "3 x 2-hour lessons with professional instructor, all equipment, progress tracking, and completion certificate"
+            "name": "3-Lesson Beginner Surf Course",
+            "description": "3 x 90-minute lessons with professional instructor and required equipment"
           }
         },
         {
           "@type": "Offer",
-          "@id": "https://surffeeling.vn/lessons#advanced-coaching", 
-          "name": "Advanced Coaching",
-          "description": "High-performance coaching for experienced surfers looking to master advanced techniques and maneuvers.",
+          "@id": "https://surffeeling.vn/lessons#private-lesson",
+          "name": "Private Surf Lesson",
+          "description": "90-minute personalized instruction for beginners or intermediates.",
           "price": "60.00",
           "priceCurrency": "USD",
-          "priceValidUntil": "2025-12-31", 
+          "priceValidUntil": "2026-12-31",
           "availability": "https://schema.org/InStock",
-          "validFrom": "2025-01-01",
+          "validFrom": "2026-01-01",
           "itemOffered": {
             "@type": "Service",
-            "name": "3-Hour Advanced Surf Coaching",
-            "description": "1-on-1 coaching, competition preparation, advanced maneuvers, video analysis, and performance tips"
+            "name": "90-Minute Private Surf Lesson",
+            "description": "One-on-one instruction, customized lesson plan, and skill-specific coaching"
           }
         }
       ]
@@ -124,7 +125,7 @@ export function SurfboardRentalSchema() {
     "@type": "Service",
     "serviceType": "EquipmentRental",
     "name": "Surfboard Rental Da Nang", 
-    "description": "Premium surfboard rentals for all skill levels with flexible daily and weekly rates. Free delivery to My Khe Beach area.",
+    "description": "Premium surfboard rentals for all skill levels with flexible hourly, daily, weekly, and monthly rates at our beach location.",
     "provider": {
       "@type": "LocalBusiness",
       "@id": "https://surffeeling.vn#business"
@@ -150,7 +151,7 @@ export function SurfboardRentalSchema() {
           "description": "Perfect for beginners - stable, safe, and forgiving 9'0\" soft-top longboard",
           "price": "12.00",
           "priceCurrency": "USD",
-          "priceValidUntil": "2025-12-31",
+          "priceValidUntil": "2026-12-31",
           "availability": "https://schema.org/InStock",
           "itemOffered": {
             "@type": "Product",
@@ -164,7 +165,7 @@ export function SurfboardRentalSchema() {
           "description": "High-performance 6'2\" shortboard for advanced surfers",
           "price": "18.00", 
           "priceCurrency": "USD",
-          "priceValidUntil": "2025-12-31",
+          "priceValidUntil": "2026-12-31",
           "availability": "https://schema.org/InStock",
           "itemOffered": {
             "@type": "Product",
@@ -203,15 +204,15 @@ export function TouristAttractionSchema() {
     ],
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "My Khe Beach",
+      "streetAddress": BUSINESS_INFO.address,
       "addressLocality": "Da Nang", 
       "addressRegion": "Da Nang",
       "addressCountry": "VN"
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": 16.0544,
-      "longitude": 108.2022
+      "latitude": BUSINESS_INFO.coordinates.lat,
+      "longitude": BUSINESS_INFO.coordinates.lng
     },
     "touristType": [
       "Adventure Seekers",

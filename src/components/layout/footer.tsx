@@ -33,7 +33,10 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="hover:text-blue-400 transition-colors"
                 >
-                  {BUSINESS_INFO.address}
+                  <span>
+                    <span className="block">{BUSINESS_INFO.address}</span>
+                    <span className="block text-gray-500">{BUSINESS_INFO.locationDescription}</span>
+                  </span>
                 </a>
               </div>
               <div className="flex items-center gap-2 text-sm">

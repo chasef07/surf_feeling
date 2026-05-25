@@ -1,4 +1,4 @@
-import { BUSINESS_INFO } from "@/lib/constants"
+import { BLOG_POSTS, BUSINESS_INFO } from "@/lib/constants"
 
 interface BlogPostSchemaProps {
   title: string
@@ -9,6 +9,7 @@ interface BlogPostSchemaProps {
   slug: string
   category: string
   tags: string[]
+  keywords: string[]
   readTime: number
 }
 
@@ -21,8 +22,11 @@ export function BlogPostSchema({
   slug, 
   category, 
   tags, 
+  keywords,
   readTime 
 }: BlogPostSchemaProps) {
+  const combinedKeywords = Array.from(new Set([...keywords, ...tags]))
+
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -63,7 +67,7 @@ export function BlogPostSchema({
       "width": 1200,
       "height": 630
     },
-    "keywords": tags.join(", "),
+    "keywords": combinedKeywords.join(", "),
     "articleSection": category,
     "wordCount": Math.round(readTime * 200), // Approximate word count based on read time
     "timeRequired": `PT${readTime}M`,
@@ -213,7 +217,15 @@ export function BlogListingSchema() {
       "@type": "ItemList",
       "name": "Surf Blog Posts",
       "description": "Collection of expert surf guides and tips",
-      "url": "https://surffeeling.vn/blog"
+      "url": "https://surffeeling.vn/blog",
+      "numberOfItems": BLOG_POSTS.length,
+      "itemListElement": BLOG_POSTS.map((post, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "url": `https://surffeeling.vn/blog/${post.slug}`,
+        "name": post.title,
+        "description": post.excerpt
+      }))
     },
     "about": [
       {
@@ -235,7 +247,7 @@ export function BlogListingSchema() {
         }
       }
     ],
-    "keywords": "Da Nang surf blog, Vietnam surfing guide, surf lessons, wave reports, surf conditions, surf spots Vietnam",
+    "keywords": "Da Nang surf blog, Vietnam surfing guide, surf lessons, wave reports, surf conditions, surf spots Vietnam, beginner surf destinations Asia, Vietnam surf travel, beginner surf lessons Da Nang",
     "inLanguage": "en-US"
   }
 

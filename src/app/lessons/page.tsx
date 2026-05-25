@@ -1,13 +1,11 @@
 import { Metadata } from "next"
-import { Waves, Users, Clock, Award, CheckCircle, Star } from "lucide-react"
+import { Waves, Users, Clock, Award, CheckCircle } from "lucide-react"
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { ContactForm } from "@/components/shared/contact-form"
-import { BUSINESS_INFO, LESSON_PACKAGES, SURF_LEVELS } from "@/lib/constants"
+import { BUSINESS_INFO, LESSON_PACKAGES } from "@/lib/constants"
 import { lessonsPageSEO } from "@/lib/seo"
 import { SurfLessonsServiceSchema } from "@/components/seo/business-schema"
 
@@ -151,11 +149,11 @@ export default function LessonsPage() {
                 <CardHeader className="text-center">
                   <CardTitle className="text-2xl text-green-900">Private Surf Lessons in Da Nang</CardTitle>
                   <CardDescription className="text-lg text-gray-600">
-                    Personalized instruction with certified instructors. Available as one-on-one sessions or private group lessons. Choose from 60, 90, or 120-minute sessions
+                    Personalized 90-minute instruction with certified instructors. Available as one-on-one sessions or private group lessons
                   </CardDescription>
                 </CardHeader>
               </Card>
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 gap-6 max-w-2xl mx-auto">
                 {LESSON_PACKAGES.filter(pkg => pkg.type === "private").map((lesson) => (
                   <Card key={lesson.id} className="relative overflow-hidden">
                     <CardHeader>
@@ -207,7 +205,7 @@ export default function LessonsPage() {
                 <CardHeader className="text-center">
                   <CardTitle className="text-2xl text-orange-900">Kids Surf Lessons in Da Nang</CardTitle>
                   <CardDescription className="text-lg text-gray-600">
-                    Safe and fun surf lessons for children of all ages with experienced instructors specialized in teaching kids
+                    Safe and fun 90-minute surf lessons for children with experienced instructors specialized in teaching kids
                   </CardDescription>
                 </CardHeader>
               </Card>

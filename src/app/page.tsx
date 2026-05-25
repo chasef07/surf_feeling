@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Star, Phone, MessageCircle, MapPin, Users, Trophy } from "lucide-react";
+import { Star, Phone, MapPin, Users, Trophy } from "lucide-react";
 import { BUSINESS_INFO } from "@/lib/constants";
 import { BusinessSchema, SurfLessonsServiceSchema, SurfboardRentalSchema, TouristAttractionSchema, FAQSchema } from "@/components/seo/business-schema";
 import { LocalBusinessSchema, PlaceSchema, EventSchema } from "@/components/seo/local-seo-schema";
@@ -87,7 +87,7 @@ const faqData = [
   },
   {
     question: "What should I bring to my surf lesson?",
-    answer: "For your surf lesson in Da Nang, just bring a swimsuit or comfortable water clothing. We provide everything else: surfboards, rash guards, sunscreen, towels, water, and all necessary equipment. Feel free to bring your own surf gear if you have it. At Surf Feeling, we ensure you're fully equipped for an amazing surfing experience in Da Nang!"
+    answer: "For your surf lesson in Da Nang, just bring a swimsuit or comfortable water clothing. We provide surfboards, sunscreen, towels, water, and the required lesson equipment. Feel free to bring your own surf gear if you have it. At Surf Feeling, we ensure you're ready for an amazing surfing experience in Da Nang!"
   }
 ];
 
@@ -233,7 +233,7 @@ export default function HomePage() {
                   </div>
                   <div className="flex justify-between">
                     <span>Private Lessons</span>
-                    <span className="font-semibold">60 | 90 | 120 Minutes</span>
+                    <span className="font-semibold">90 Minutes</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Kids Surf Lessons</span>
