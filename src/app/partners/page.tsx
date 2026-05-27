@@ -1,5 +1,5 @@
 import { Metadata } from "next"
-import { ExternalLink, MapPin, Phone, Globe } from "lucide-react"
+import { MapPin, Phone, Globe } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -18,7 +18,7 @@ const helpfulLinks = [
     category: "Surf Equipment",
     website: "https://danangsurfshop.vn/",
     phone: "093.499.2703",
-    address: "58 Thạch Lam, Phước Mỹ, Quận Sơn Trà, TP. Đà Nẵng",
+    address: null,
     highlights: ["Local surf expertise", "Quality-assured products", "Diverse selection", "Trusted brands"]
   },
   {

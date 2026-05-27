@@ -1,12 +1,12 @@
 import { Metadata } from "next"
 import Image from "next/image"
-import { Waves, Clock, Shield, MapPin, CheckCircle, Star, Truck, Target, MessageCircle } from "lucide-react"
+import { Waves, Clock, Shield, MapPin, CheckCircle, Target, MessageCircle } from "lucide-react"
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { BUSINESS_INFO, RENTAL_BOARDS } from "@/lib/constants"
+import { RENTAL_BOARDS } from "@/lib/constants"
 import { rentalsPageSEO } from "@/lib/seo"
 import { SurfboardRentalSchema } from "@/components/seo/business-schema"
 
@@ -95,10 +95,10 @@ export default function RentalsPage() {
             <Card className="text-center">
               <CardContent className="pt-6">
                 <div className="w-12 h-12 bg-blue-100 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <Truck className="h-6 w-6 text-blue-600" />
+                  <MapPin className="h-6 w-6 text-blue-600" />
                 </div>
-                <h3 className="font-semibold mb-2">Free Board Delivery</h3>
-                <p className="text-sm text-gray-600">We offer free board delivery anywhere within a 2km radius of our shop</p>
+                <h3 className="font-semibold mb-2">Beachfront Pickup</h3>
+                <p className="text-sm text-gray-600">Pick up and return boards directly at our beach location</p>
               </CardContent>
             </Card>
 
@@ -207,7 +207,7 @@ export default function RentalsPage() {
             
             <div className="text-center mt-8">
               <p className="text-lg text-gray-600 mb-6">
-                Surf Feeling is also the only surf shop in Da Nang that offers free surfboard delivery and pick-up anywhere in the city. We are always changing our board stock. Contact us to see our most up to date board collection.
+                Our board stock changes regularly. Come by our beach location or contact us to see our most up to date board collection.
               </p>
               <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
                 <a href="https://wa.me/84792380198?text=Hi! I have questions about surfboard rentals in Da Nang." target="_blank" rel="noopener noreferrer">

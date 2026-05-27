@@ -126,6 +126,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         slug={post.slug}
         category={post.category}
         tags={[...post.tags]}
+        keywords={[...post.seoKeywords]}
         readTime={post.readTime}
       />
       <div className="min-h-screen bg-white">

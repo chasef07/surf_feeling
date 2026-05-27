@@ -151,7 +151,7 @@ export const lessonsPageSEO = (): Metadata => generateMetadata({
 
 export const rentalsPageSEO = (): Metadata => generateMetadata({
   title: 'Surfboard Rentals Da Nang - Premium Equipment for All Levels',
-  description: 'Rent premium surfboards in Da Nang. Soft longboards for beginners, funboards, performance shortboards. Daily, weekly rates. Located at My Khe Beach with delivery available.',
+  description: 'Rent premium surfboards in Da Nang. Soft longboards for beginners, funboards, and performance shortboards with hourly, daily, weekly, and monthly rental options at our beach location.',
   keywords: [
     'surfboard rental Da Nang',
     'long term surfboard rental',
@@ -173,7 +173,10 @@ export const blogPageSEO = (): Metadata => generateMetadata({
     'surf spots Vietnam',
     'surf season Da Nang',
     'best time to surf Vietnam',
-    'surf travel guide'
+    'surf travel guide',
+    'beginner surf destinations Asia',
+    'Vietnam surf travel',
+    'beginner surf lessons Da Nang'
   ],
   canonical: `${SITE_URL}/blog`,
   ogImage: `${SITE_URL}/images/og-blog.jpg`
@@ -258,7 +261,7 @@ export function generateBusinessSchema() {
       "latitude": BUSINESS_INFO.coordinates.lat,
       "longitude": BUSINESS_INFO.coordinates.lng
     },
-    "openingHours": "Mo-Su 06:00-18:00",
+    "openingHours": "Mo-Su 07:00-17:00",
     "priceRange": "$20-$100",
     "currenciesAccepted": "VND, USD",
     "paymentAccepted": "Cash, Credit Card, Bank Transfer",
@@ -283,16 +286,16 @@ export function generateBusinessSchema() {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Beginner Surf Lessons",
-            "description": "2-hour surf lesson perfect for complete beginners"
+            "name": "90-Minute Surf Lessons",
+            "description": "90-minute surf lesson perfect for complete beginners"
           }
         },
         {
           "@type": "Offer", 
           "itemOffered": {
             "@type": "Service",
-            "name": "Surfboard Rentals",
-            "description": "Premium surfboard rentals for all skill levels"
+            "name": "Beachfront Surfboard Rentals",
+            "description": "Premium surfboard rentals for all skill levels at our beach location"
           }
         }
       ]
@@ -354,16 +357,16 @@ export function generateServiceSchema(serviceType: 'lessons' | 'rentals') {
         "itemListElement": [
           {
             "@type": "Offer",
-            "name": "Beginner Single Lesson", 
-            "description": "2-hour beginner surf lesson with all equipment included",
+            "name": "90-Minute Beginner Surf Lesson",
+            "description": "90-minute beginner surf lesson with required equipment included",
             "price": "32",
             "priceCurrency": "USD",
             "availability": "InStock"
           },
           {
             "@type": "Offer",
-            "name": "3-Day Beginner Package",
-            "description": "Complete beginner course over 3 days with certificate",
+            "name": "3-Lesson Beginner Course",
+            "description": "Complete beginner course with three 90-minute lessons",
             "price": "85", 
             "priceCurrency": "USD",
             "availability": "InStock"

@@ -44,7 +44,7 @@ export const rentalBookingSchema = z.object({
   endDate: z.string().min(1, "End date required"),
   startTime: z.string().optional(),
   endTime: z.string().optional(),
-  pickupLocation: z.enum(["my-khe", "bac-my-an", "delivery"]),
+  pickupLocation: z.enum(["my-khe", "bac-my-an"]),
   specialRequests: z.string().optional()
 })
 

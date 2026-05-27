@@ -7,11 +7,13 @@ export const BUSINESS_INFO = {
   phone: "+84-79-238-0198",
   whatsapp: "+84-79-238-0198",
   email: "info@surffeeling.vn",
-  address: "58 Thạch Lam, Phước Mỹ, Sơn Trà, Đà Nẵng 550000, Vietnam",
-  hours: "7:30 - 5:00 / 7 days a week",
+  plusCode: "36HW+VM5",
+  address: "36HW+VM5, Vương Thừa Vũ, Sơn Trà, Đà Nẵng 550000, Vietnam",
+  locationDescription: "On the beach directly across from Hilton Garden Inn Da Nang",
+  hours: "7:00 AM - 5:00 PM / 7 days a week",
   coordinates: {
-    lat: 16.0544,
-    lng: 108.2022
+    lat: 16.0796704,
+    lng: 108.2467338
   }
 } as const;
 
@@ -88,46 +90,16 @@ export const LESSON_PACKAGES = [
   },
   // Private Lessons
   {
-    id: "private-60min",
-    title: "Private Lesson (60 minutes)",
-    level: "beginner" as const,
-    type: "private" as const,
-    duration: 1,
-    maxParticipants: 1,
-    description: "Tailored 60-minute private surf lesson for beginners or intermediates. Customized to fit the student's exact needs with flexible scheduling.",
-    includes: ["Surfboard rental", "Rash guard/wetsuit", "Sunscreen and hats", "One-on-one instruction", "Customized lesson plan"]
-  },
-  {
     id: "private-90min",
     title: "Private Lesson (90 minutes)",
     level: "intermediate" as const,
     type: "private" as const,
     duration: 1.5,
     maxParticipants: 1,
-    description: "Extended 90-minute private lesson tailored for beginners or intermediates. Video analysis offered for intermediate students to accelerate learning.",
-    includes: ["Surfboard rental", "Rash guard/wetsuit", "Sunscreen and hats", "Extended coaching", "Video analysis (intermediate)"]
-  },
-  {
-    id: "private-120min",
-    title: "Private Lesson (120 minutes)",
-    level: "advanced" as const,
-    type: "private" as const,
-    duration: 2,
-    maxParticipants: 1,
-    description: "Comprehensive 120-minute private lesson for beginners or intermediates. Maximum time for skill development with personalized instruction tailored to student needs.",
-    includes: ["Surfboard rental", "Rash guard/wetsuit", "Sunscreen and hats", "Intensive coaching", "Video analysis available"]
+    description: "Tailored 90-minute private surf lesson for beginners or intermediates. Customized to fit the student's exact needs with flexible scheduling.",
+    includes: ["Surfboard rental", "Rash guard/wetsuit", "Sunscreen and hats", "One-on-one instruction", "Customized lesson plan"]
   },
   // Kids Lessons
-  {
-    id: "kids-60min",
-    title: "Kids Private Lesson (60 minutes)",
-    level: "beginner" as const,
-    type: "kids" as const,
-    duration: 1,
-    maxParticipants: 1,
-    description: "60-minute private surf lesson for children as young as 5 years old. Safe, fun, and age-appropriate instruction in a controlled environment.",
-    includes: ["Age-appropriate surfboard", "Kids wetsuit/rash guard", "Sunscreen and hats", "Child-specialized instruction", "Safety-first approach"]
-  },
   {
     id: "kids-90min",
     title: "Kids Private Lesson (90 minutes)",
@@ -135,8 +107,8 @@ export const LESSON_PACKAGES = [
     type: "kids" as const,
     duration: 1.5,
     maxParticipants: 1,
-    description: "Extended 90-minute private lesson for children as young as 5 years old. More time for skill development with patient, experienced instructors.",
-    includes: ["Age-appropriate surfboard", "Kids wetsuit/rash guard", "Sunscreen and hats", "Extended kid-friendly instruction", "Fun learning environment"]
+    description: "90-minute private surf lesson for children as young as 5 years old. More time for skill development with patient, experienced instructors.",
+    includes: ["Age-appropriate surfboard", "Sunscreen and hats", "Extended kid-friendly instruction", "Fun learning environment"]
   },
   // Fundamentals Courses
   {
@@ -354,6 +326,73 @@ export const BLOG_CATEGORIES = {
 } as const;
 
 export const BLOG_POSTS = [
+  {
+    id: "why-da-nang-favorite-beginner-surf-destinations-asia",
+    title: "Why Da Nang Became One of My Favorite Beginner Surf Destinations in Asia",
+    slug: "why-da-nang-favorite-beginner-surf-destinations-asia",
+    excerpt: "Da Nang has become one of Asia's most underrated beginner surf destinations thanks to warm water, relaxed beach culture, forgiving waves, and personal surf lessons near My Khe Beach.",
+    content: `
+# Why Da Nang Became One of My Favorite Beginner Surf Destinations in Asia
+
+The first thing I noticed about Da Nang was not the waves. It was the pace.
+
+Compared to other surf towns in Southeast Asia, Da Nang feels surprisingly relaxed. Mornings start slow. Locals drink coffee on tiny plastic stools. Fishermen pull basket boats onto the sand while the sun rises over My Khe Beach. Somewhere between the ocean breeze and the sound of scooters humming down the coast, you realize this city has the perfect energy for learning how to surf.
+
+That is probably why so many travelers end up staying longer than they planned.
+
+Over the past few years, <a href="/blog/everything-you-need-to-know-surfing-da-nang" class="text-blue-700 underline underline-offset-4 hover:text-blue-900">Vietnam's surf scene has quietly grown</a>, and Da Nang has become one of the best places in Asia for beginner surfers. The beaches are wide, the water is warm year-round, and the waves are forgiving enough for first-timers while still being fun for experienced surfers on the right days.
+
+What makes the experience even better is that surfing here still feels authentic. It has not been overdeveloped or commercialized the way some surf destinations have. You can still walk down the beach carrying a board at sunrise and feel like you have discovered something special.
+
+## Surf Feeling on the Beach in Da Nang
+
+That is where Surf Feeling comes in.
+
+Located directly on the beach near My Khe Beach, <a href="/" class="text-blue-700 underline underline-offset-4 hover:text-blue-900">Surf Feeling</a> has become a favorite among backpackers, travelers, and new surfers looking for a more personal introduction to surfing in Vietnam. Instead of rushing people through quick tourist lessons, the focus is on helping beginners actually understand the ocean: how to paddle, read waves, position themselves properly, and eventually surf independently.
+
+The atmosphere reflects the city itself: relaxed, welcoming, and a little chaotic in the best way possible.
+
+After a surf lesson, it is common to see people hanging around the beach talking about wipeouts, grabbing a banh mi nearby, or planning where to travel next in Vietnam. For many travelers, surfing becomes part of a much bigger journey.
+
+That idea, using surfing as a gateway into travel and culture, is exactly why the partnership with Sessions Travel makes so much sense.
+
+## Why the Sessions Travel Partnership Makes Sense
+
+<a href="https://sessionstravel.com/destinations/vietnam/surfing-in-da-nang/" target="_blank" rel="noopener noreferrer" class="text-blue-700 underline underline-offset-4 hover:text-blue-900">Sessions Travel</a> focuses on helping beginner surfers explore new destinations through surf travel. Their guides and stories are built around making surf trips feel approachable, especially for people who are new to the sport and unsure where to start. Instead of focusing only on perfect waves or elite surf culture, they emphasize the experience: discovering coastlines, meeting people, and building confidence in unfamiliar places.
+
+Da Nang is the perfect example of that philosophy.
+
+You come for a surf lesson, but you leave remembering late-night seafood dinners by the beach, conversations with other travelers, and the feeling of catching your first real wave in warm tropical water.
+
+For beginners thinking about taking their first surf trip, <a href="https://sessionstravel.com/destinations/vietnam/surfing-in-da-nang/" target="_blank" rel="noopener noreferrer" class="text-blue-700 underline underline-offset-4 hover:text-blue-900">Sessions Travel makes sure to emphasize that Vietnam deserves a spot much higher on the list than it usually gets</a>. The combination of affordable travel, friendly local culture, uncrowded beaches, and consistent beginner-friendly waves makes Da Nang one of the most underrated surf destinations in Asia right now.
+
+Once you experience it, it is easy to understand why so many surfers keep chasing that feeling long after the trip ends.
+
+## Start Surfing in Da Nang
+
+If you are looking for beginner surf lessons in Da Nang, Surf Feeling offers 90-minute lessons designed to help new surfers feel comfortable in the water, understand the basics, and build real confidence in the ocean.
+    `,
+    category: "travel-guide",
+    author: "Surf Feeling Team",
+    publishedAt: "2026-05-25",
+    updatedAt: "2026-05-25",
+    readTime: 4,
+    seoKeywords: [
+      "beginner surf destinations Asia",
+      "Da Nang beginner surfing",
+      "beginner surf lessons Da Nang",
+      "surfing in Da Nang Vietnam",
+      "My Khe Beach surf lessons",
+      "Vietnam surf travel",
+      "learn to surf Da Nang",
+      "Surf Feeling Da Nang",
+      "Sessions Travel surfing",
+      "best surf destinations Asia beginners",
+      "underrated surf destinations Asia",
+      "Da Nang surf school"
+    ],
+    tags: ["Da Nang", "beginner surfing", "surf travel", "Vietnam", "My Khe Beach", "surf lessons", "Sessions Travel", "travel guide"]
+  },
   {
     id: "everything-you-need-to-know-surfing-da-nang",
     title: "Everything You Need To Know About Surfing In Da Nang",

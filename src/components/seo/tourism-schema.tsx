@@ -28,7 +28,7 @@ export function TouristAttractionSchemaDetailed() {
     ],
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "My Khe Beach",
+      "streetAddress": BUSINESS_INFO.address,
       "addressLocality": "Da Nang",
       "addressRegion": "Central Vietnam",
       "addressCountry": "VN",
@@ -52,7 +52,7 @@ export function TouristAttractionSchemaDetailed() {
     "availableLanguage": ["en", "vi", "ko", "ja", "zh"],
     "isAccessibleForFree": false,
     "publicAccess": true,
-    "openingHours": "Mo-Su 06:00-18:00",
+    "openingHours": "Mo-Su 07:00-17:00",
     "amenityFeature": [
       {
         "@type": "LocationFeatureSpecification",
@@ -326,15 +326,15 @@ export function SportsActivityLocationSchema() {
       }
     ],
     "maximumAttendeeCapacity": 50,
-    "openingHours": "Mo-Su 06:00-18:00",
+    "openingHours": "Mo-Su 07:00-17:00",
     "specialOpeningHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        "opens": "06:00",
-        "closes": "18:00",
-        "validFrom": "2025-01-01",
-        "validThrough": "2025-12-31"
+        "opens": "07:00",
+        "closes": "17:00",
+        "validFrom": "2026-01-01",
+        "validThrough": "2026-12-31"
       }
     ]
   }
@@ -371,8 +371,8 @@ export function CourseSchema() {
       "Equipment Knowledge"
     ],
     "coursePrerequisites": "Basic swimming ability",
-    "timeRequired": "P3D", // 3 days
-    "totalTime": "PT6H", // 6 hours total
+    "timeRequired": "PT4H30M",
+    "totalTime": "PT4H30M",
     "numberOfCredits": 0,
     "hasCourseInstance": [
       {
@@ -381,8 +381,8 @@ export function CourseSchema() {
         "courseSchedule": {
           "@type": "Schedule",
           "repeatFrequency": "Daily",
-          "startTime": "06:00",
-          "endTime": "18:00"
+          "startTime": "07:00",
+          "endTime": "17:00"
         },
         "location": {
           "@type": "Place",

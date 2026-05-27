@@ -21,7 +21,7 @@ export function LocalBusinessSchema() {
     "email": BUSINESS_INFO.email,
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "My Khe Beach",
+      "streetAddress": BUSINESS_INFO.address,
       "addressLocality": "Da Nang",
       "addressRegion": "Da Nang",
       "postalCode": "550000", 
@@ -34,7 +34,7 @@ export function LocalBusinessSchema() {
       "longitude": BUSINESS_INFO.coordinates.lng
     },
     "openingHours": [
-      "Mo-Su 06:00-18:00"
+      "Mo-Su 07:00-17:00"
     ],
     "openingHoursSpecification": [
       {
@@ -48,8 +48,8 @@ export function LocalBusinessSchema() {
           "Saturday",
           "Sunday"
         ],
-        "opens": "06:00",
-        "closes": "18:00"
+        "opens": "07:00",
+        "closes": "17:00"
       }
     ],
     "priceRange": "$$",
@@ -266,8 +266,8 @@ export function EventSchema() {
     "@type": "Event",
     "name": "Daily Surf Lessons at My Khe Beach",
     "description": "Daily surf lessons for all skill levels with professional instructors at My Khe Beach, Da Nang.",
-    "startDate": "2025-01-01",
-    "endDate": "2025-12-31",
+    "startDate": "2026-01-01",
+    "endDate": "2026-12-31",
     "eventStatus": "EventScheduled",
     "eventAttendanceMode": "OfflineEventAttendanceMode",
     "location": {
@@ -275,7 +275,7 @@ export function EventSchema() {
       "name": "My Khe Beach",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "My Khe Beach",
+        "streetAddress": BUSINESS_INFO.address,
         "addressLocality": "Da Nang",
         "addressCountry": "VN"
       },
